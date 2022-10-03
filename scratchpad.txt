@@ -1,0 +1,79 @@
+IMPORTANT - React Router Installation Update
+
+In the upcoming lecture, we will be installing React Router. There is a fully breaking release with v6, so, we'll need a specific version instead:
+
+npm install react-router-dom@5
+
+This is not optional, the code written over the next few sections is not compatible with React Router v6.
+
+-----------------
+OAuth Client ID:
+1095303553839-6qjp3b1bpdiaarjtgdc4tf3oeol7dj66.apps.googleusercontent.com
+
+-----------------
+To get google auth user ID:
+- From browser console - "gapi.auth2.getAuthInstance().currentUser.get().getId()"
+
+-----------------
+Redux dev tools - new debug session - http://localhost:3000/?debug_session=<some_string>
+
+-----------------
+Important Note about Redux Form Installation
+Installation
+
+In the upcoming lecture, we will be installing Redux Form into our application. If you are using the latest Node v15 and npm v7 releases, this will fail with the following error:
+
+code ERESOLVE
+
+npm ERR! ERESOLVE unable to resolve dependency tree
+
+This is caused by some fairly significant breaking changes NPM is making, which can read about here:
+
+https://blog.npmjs.org/post/626173315965468672/npm-v7-series-beta-release-and-semver-majory
+
+If you are using NPM, you'll need to run this command instead:
+
+npm install redux-form --legacy-peer-deps
+
+If you are using Yarn, no further changes will be needed and you can install as you would typically:
+
+yarn add redux-form
+
+Note - Do not mix the use of yarn and npm in the same project, this will cause some serious dependency conflicts.
+React Final Form
+
+We highly recommend finishing the Streaming / Twitch Clone project in Sections 23 to 26 with Redux Form so that you fully understand how everything fits together as shown in the lectures. The migration to Final Form is fairly simple in regards to the completed project code and can be found in this supplemental lecture note here:
+
+https://www.udemy.com/course/react-redux/learn/lecture/26637172#questions
+
+----------------
+Redux form issue from above causes dependency issues when instaling axios and redux thunk. Used this command to install:
+npm install --legacy-peer-deps axios redux-thunk
+
+----------------
+History Object Deprecation Warning
+
+In the next lecture we are going to be creating our history object. As of React Router DOM v4.4.0 you will get a warning in your console:
+
+Warning: Please use `require("history").createBrowserHistory` instead of `require("history/createBrowserHistory")`. Support for the latter will be removed in the next major release.
+
+To fix, our history.js file should instead look like this:
+
+    import { createBrowserHistory } from 'history'; 
+    export default createBrowserHistory();
+
+----------------
+
+RTMP NodeMediaServer is not a constructor error fix
+
+In the next lecture we will install the Node Media Server package and create our RTMP server. Our index.js needs a slight modification to the import for v.2.1.0
+
+https://github.com/illuspas/Node-Media-Server#npm-version-recommended
+
+Instead of:
+
+    const { NodeMediaServer } = require('node-media-server');
+
+we need to change the import to this:
+
+    const NodeMediaServer = require('node-media-server');

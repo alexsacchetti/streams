@@ -1,0 +1,26 @@
+{
+  "streams": [
+    {
+      "title": "new stream",
+      "description": "cool stream",
+      "id": 1
+    },
+    {
+      "title": "other stream",
+      "description": "here's another stream",
+      "id": 2
+    },
+    {
+      "title": "streamer mcstream",
+      "description": "streams some kinda stuff",
+      "userId": "108654605521805545625",
+      "id": 5
+    },
+    {
+      "title": "MAKE a NEW stream",
+      "description": "another streaming stream",
+      "userId": "108654605521805545625",
+      "id": 8
+    }
+  ]
+}
